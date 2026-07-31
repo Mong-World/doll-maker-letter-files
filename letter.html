@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
+  <title>Angelica's Letter</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body>
+  <img id="letter" alt="Angelica's letter">
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const imageName = params.get("image") || "L1.PNG";
+
+    const allowedImages = [
+      "L1.PNG",
+      "L2.PNG",
+      "L3.PNG",
+      "L4.PNG",
+      "L5.PNG",
+      "Last letter.jpg"
+    ];
+
+    const letterImage = document.getElementById("letter");
+
+    if (allowedImages.includes(imageName)) {
+      letterImage.src = imageName;
+    } else {
+      letterImage.src = "L1.PNG";
+    }
+  </script>
+</body>
+</html>
